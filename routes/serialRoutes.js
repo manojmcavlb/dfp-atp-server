@@ -65,7 +65,7 @@ router.post('/send', (req, res) => {
 });
 
 /* ----------- CLOSE SERIAL ----------- */
-router.post('/close', (_req, res) => {
+router.post('/close', (req, res) => {
   if (!serial?.isOpen) return res.json({ ok: true });
   serial.close(() => {
     req.io.emit('serial_close');
